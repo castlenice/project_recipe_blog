@@ -1,11 +1,13 @@
 import React from 'react'
 import Post from './Post'
 
-const Posts = ({ posts }) => {
-    console.log(posts)
+const Posts = ({ results }) => {
+    console.log(results)
     return (
         <div>
-            {posts.map((article, index) => <Post article={article} key={index} />)}
+            {results
+                ? results.map((recipes, index) => <Post recipes={recipes} key={index} />)
+        : "Loading...."}
         </div>
     )
 }
