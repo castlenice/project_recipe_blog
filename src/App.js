@@ -4,7 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import axios from "axios";
 import { NavLink } from "react-router-dom";
 import "./App.css";
-import Posts from "./components/Posts";
+import { Posts } from "./components/Posts";
 import BootstrapCarouselComponent from "./components/Home";
 import sontine from "./pictures/sontine.png";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
@@ -67,11 +67,15 @@ function App() {
         <main>
           <div className="wrapper">
             <Routes>
+              <Route path="/" element={<BootstrapCarouselComponent />} />
               <Route
                 path="sonja"
-                element={<Posts results={results} />}
+                element={<Posts showAuthorId={1} results={results} />}
               />
-              <Route path="/" element={<BootstrapCarouselComponent />} />
+              <Route
+                path="tine"
+                element={<Posts showAuthorId={2} results={results} />}
+              />
             </Routes>
           </div>
         </main>

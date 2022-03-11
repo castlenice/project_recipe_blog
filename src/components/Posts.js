@@ -1,17 +1,14 @@
-import React from 'react'
-import Post from './Post'
+import React from "react";
+import { Post } from "./Post";
 
-const Posts = ({ results }) => {
-    console.log(results)
-    return (
-        <div>
-            {results
-                ? results.map((recipes, index) => <Post recipes={recipes} key={index} />)
+export const Posts = ({ results, showAuthorId }) => {
+  return (
+    <div>
+      {results
+        ? results
+            .filter((recipe) => recipe.author_id === showAuthorId)
+            .map((recipe, index) => <Post recipe={recipe} key={index} />)
         : "Loading...."}
-        </div>
-    )
-}
-
-
-
-export default Posts
+    </div>
+  );
+};
